@@ -4,7 +4,7 @@
 ![NVIDIA NIM](https://img.shields.io/badge/NVIDIA%20NIM-Gratis-brightgreen)
 ![Google Calendar](https://img.shields.io/badge/Google%20Calendar-API-orange)
 
-Un agente de inteligencia artificial que te permite organizar tu lista de lecturas, agendar sesiones en Google Calendar y guardar reseñas de tus libros favoritos.
+Agente de inteligencia artificial que te permite organizar tu lista de lecturas, agendar sesiones en Google Calendar y guardar reseñas de tus libros favoritos.
 
 Construido con Python, NVIDIA NIM (gratuito) y la API de Google Calendar (gratuita).
 Este agente está impulsado por mistral-nemotron a través de NVIDIA NIM.
