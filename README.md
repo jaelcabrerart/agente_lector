@@ -1,188 +1,90 @@
-\# Agente Lector
+# 📚 Agente Lector
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
+![NVIDIA NIM](https://img.shields.io/badge/NVIDIA%20NIM-Gratis-brightgreen)
+![Google Calendar](https://img.shields.io/badge/Google%20Calendar-API-orange)
 
+Un agente de inteligencia artificial que te permite organizar tu lista de lecturas, agendar sesiones en Google Calendar y guardar reseñas de tus libros favoritos.
 
-Agente de inteligencia artificial que te permite organizar tu lista de lecturas, agendar sesiones en Google Calendar y guardar reseñas de libros.
+Construido con Python, NVIDIA NIM (gratuito) y la API de Google Calendar (gratuita).
+Este agente está impulsado por mistral-nemotron a través de NVIDIA NIM.
+Está disponible de manera completamente gratuita en NVIDIA Build y no requiere ingresar tarjeta de crédito.
 
+---
 
+## ✨ ¿Qué puede hacer?
 
-Construido con Python, NVIDIA NIM (gratuito) y Google Calendar API (gratuita).
+* **Gestionar lecturas:** Agrega libros a tu lista con estados claros (*pendiente*, *leyendo* o *terminado*).
+* **Explorar tu biblioteca:** Ve y filtra tu lista de libros fácilmente.
+* **Actualizar el progreso:** Cambia el estado de un libro conforme avanzas.
+* **Agendar sesiones:** Crea bloques de tiempo para leer directamente en tu Google Calendar.
+* **Reseñar:** Guarda y consulta reseñas de tus libros con una calificación del 1 al 5.
+* **Memoria conversacional:** El agente recuerda toda la conversación, incluso si refrescas la página.
 
+---
 
+## 🛠️ Requisitos
 
-\## ¿Qué puede hacer?
+* Python 3.10 o superior.
+* Una cuenta gratuita en [NVIDIA NIM](https://build.nvidia.com).
+* Una cuenta de Google con acceso a Google Calendar.
 
+---
 
+## 🚀 Instalación
 
-\- Agregar libros a tu lista con estado: pendiente, leyendo o terminado
+### 1. Clona el repositorio
 
-\- Ver y filtrar tu lista de libros
+git clone [https://github.com/TU_USUARIO/agente_lector.git](https://github.com/TU_USUARIO/agente_lector.git)
+cd agente_lector
 
-\- Actualizar el estado de un libro
-
-\- Agendar sesiones de lectura en Google Calendar
-
-\- Guardar y ver reseñas con calificación del 1 al 5
-
-\- Recordar toda la conversación aunque refresques la página
-
-
-
-\## Requisitos
-
-
-
-\- Python 3.10 o superior
-
-\- Una cuenta gratuita en NVIDIA NIM (https://build.nvidia.com)
-
-\- Una cuenta de Google con acceso a Google Calendar
-
-
-
-\## Instalación
-
-
-
-\### 1. Clona el repositorio
-
-
-
-git clone https://github.com/TU\_USUARIO/agente\_lector.git
-
-cd agente\_lector
-
-
-
-\### 2. Crea y activa el entorno virtual
-
-
+### 2. Crea y activa el entorno virtual
 
 En Windows:
-
 python -m venv venv
+venv\Scripts\activate
 
-venv\\Scripts\\activate
-
-
-
-En Mac/Linux:
-
+En Mac / Linux:
 python -m venv venv
-
 source venv/bin/activate
 
-
-
-\### 3. Instala las dependencias
-
-
+### 3. Instala las dependencias
 
 pip install -r requirements.txt
 
+### 4. Configura tu API key de NVIDIA
 
+Crea un archivo llamado .env en la raíz del proyecto y agrega tu clave de la siguiente manera:
+Fragmento de código: NVIDIA_API_KEY=tu_api_key_aqui
+Nota: Puedes obtener tu API key completamente gratis en NVIDIA Build.
 
-\### 4. Configura tu API key de NVIDIA
+### 5. Configura Google Calendar
 
+-- Sigue estos pasos para obtener tus credenciales y permitir que el agente agende por ti:
+-- Ve a Google Cloud Console.
+-- Crea un proyecto nuevo.
+-- Activa la API de Google Calendar.
+-- Crea credenciales OAuth para una aplicación de escritorio.
+-- Descarga el archivo JSON generado y renómbralo a credentials.json.
+-- Mueve credentials.json a la carpeta principal de este proyecto.
 
+Importante: La primera vez que corras el agente, se abrirá una ventana en tu navegador para que autorices el acceso a tu calendario. Esto solo se te pedirá una vez.
 
-Crea un archivo llamado .env en la carpeta del proyecto con este contenido:
-
-
-
-NVIDIA\_API\_KEY=tu\_api\_key\_aqui
-
-
-
-Obtén tu API key gratis en: https://build.nvidia.com
-
-
-
-\### 5. Configura Google Calendar
-
-
-
-Sigue estos pasos para obtener tus credenciales:
-
-
-
-1\. Ve a https://console.cloud.google.com
-
-2\. Crea un proyecto nuevo
-
-3\. Activa la API de Google Calendar
-
-4\. Crea credenciales OAuth para aplicación de escritorio
-
-5\. Descarga el archivo JSON y renómbralo a credentials.json
-
-6\. Coloca credentials.json en la carpeta del proyecto
-
-
-
-La primera vez que corras el agente, se abrirá el navegador para que des permiso de acceso a tu calendario. Esto solo pasa una vez.
-
-
-
-\### 6. Corre el agente
-
-
+### 6. Corre el agente
 
 python app.py
+Una vez que esté corriendo, abre tu navegador y visita: http://127.0.0.1:7860
 
+## Estructura del proyecto
 
-
-Luego abre tu navegador en: http://127.0.0.1:7860
-
-
-
-\## Estructura del proyecto
-
-
-
-agente\_lector/
-
-&#x20;   app.py              <- interfaz web con Gradio
-
-&#x20;   agente.py           <- cerebro del agente
-
-&#x20;   tools.py            <- herramientas del agente
-
-&#x20;   database.py         <- base de datos SQLite
-
-&#x20;   calendar\_tool.py    <- conexión con Google Calendar
-
-&#x20;   requirements.txt    <- lista de dependencias
-
-&#x20;   .env                <- tu API key (NO se sube a GitHub)
-
-&#x20;   credentials.json    <- credenciales de Google (NO se sube a GitHub)
-
-&#x20;   token.json          <- token de acceso (se genera automáticamente)
-
-&#x20;   lecturas.db         <- tu base de datos (se genera automáticamente)
-
-
-
-\## Modelo de IA utilizado
-
-
-
-Este agente usa mistral-nemotron de NVIDIA NIM, disponible completamente gratis en https://build.nvidia.com.
-
-No requiere tarjeta de crédito.
-
-
-
-\## Costos
-
-
-
-\- NVIDIA NIM: GRATIS (40 solicitudes por minuto)
-
-\- Google Calendar API: GRATIS (hasta 1 millón de solicitudes al día)
-
-\- Gradio: GRATIS
-
-\- SQLite: GRATIS
-
+agente_lector/
+├── app.py              # Interfaz web con Gradio
+├── agente.py           # Cerebro del agente (Lógica principal)
+├── tools.py            # Herramientas adicionales del agente
+├── database.py         # Gestión de la base de datos SQLite
+├── calendar_tool.py    # Conexión e interacción con Google Calendar
+├── requirements.txt    # Lista de dependencias del proyecto
+├── .env                # 🔒 Tu API key (NO se sube a GitHub)
+├── credentials.json    # 🔒 Credenciales de Google (NO se sube a GitHub)
+├── token.json          # Token de acceso (Se genera automáticamente)
+└── lecturas.db         # Tu base de datos (Se genera automáticamente)
