@@ -1,0 +1,19 @@
+# Entorno virtual - pesa mucho y no se sube
+venv/
+
+# Archivos con información privada - NUNCA se suben
+.env
+credentials.json
+token.json
+
+# Base de datos personal - cada quien tiene la suya
+lecturas.db
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos del sistema Windows
+Thumbs.db
+desktop.ini 
